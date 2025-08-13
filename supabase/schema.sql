@@ -110,9 +110,10 @@ begin
 
   -- Optional basic rate limit: max 10 votes per minute per session
   if voter_session is not null then
-    select count(*) into recent_count from public.votes
-    where voter_session = record_vote_and_update_elo.voter_session
-      and created_at > now() - interval '1 minute';
+    select count(*) into recent_count
+    from public.votes v
+    where v.voter_session = record_vote_and_update_elo.voter_session
+      and v.created_at > now() - interval '1 minute';
     if recent_count >= 10 then
       raise exception 'Rate limited';
     end if;
