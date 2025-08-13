@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
 import type { Company } from '../types'
 
@@ -83,8 +84,9 @@ export default function Vote() {
             pair.map((c) => <CompanyCard key={c.id} company={c} onVote={vote} />)
           )}
         </div>
-        <div style={{ marginTop: 28, display: 'flex', justifyContent: 'center' }}>
+        <div style={{ marginTop: 28, display: 'flex', gap: 12, justifyContent: 'center' }}>
           <button onClick={loadPair} style={{ fontSize: 16 }}>Skip</button>
+          <Link to="/leaderboard"><button style={{ fontSize: 16 }}>Leaderboard</button></Link>
         </div>
       </div>
     </div>
