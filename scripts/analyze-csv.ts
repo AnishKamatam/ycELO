@@ -19,11 +19,6 @@ function toLowerKeys(row: Row): Row {
   return out
 }
 
-function pickKey(row: Row, candidates: string[]): string | undefined {
-  for (const c of candidates) if (c in row) return c
-  return undefined
-}
-
 function detectMapping(headers: string[]): Mapping {
   const lowerHeaders = headers.map(h => h.toLowerCase())
   const set = new Set(lowerHeaders)

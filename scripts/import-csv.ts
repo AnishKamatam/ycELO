@@ -11,6 +11,7 @@ type Company = {
   yc_batch: string | null
   website_url: string | null
   location: string | null
+  status: string
 }
 
 const supabaseUrl = process.env.VITE_SUPABASE_URL as string
@@ -73,6 +74,7 @@ function mapRowToCompany(row: Record<string, unknown>): Company | null {
   const all_locations = pick(lower, ['all_locations'])
   const regions0 = pick(lower, ['regions/0'])
   const location = all_locations || regions0 || pick(lower, ['location', 'city', 'hq', 'hq_location'])
+  const statusVal = pick(lower, ['status']) || 'Active'
 
   const profile_url = normalizeUrl(profileRaw)
   const website_url = normalizeWebsiteUrl(website_url_raw)
@@ -87,6 +89,7 @@ function mapRowToCompany(row: Record<string, unknown>): Company | null {
     yc_batch: yc_batch ? yc_batch : null,
     website_url: website_url ? website_url : null,
     location: location ? location : null,
+    status: statusVal,
   }
 }
 
