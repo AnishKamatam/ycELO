@@ -51,8 +51,12 @@ export default function Leaderboard() {
   }, [query])
 
   return (
-    <div style={{ maxWidth: 1200, margin: '0 auto', padding: 48 }}>
-      <h1 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16, textAlign: 'center', color: '#000' }}>Leaderboard</h1>
+    <div style={{ maxWidth: 1200, margin: '0 auto', padding: 32 }}>
+      <div className="topnav" style={{ marginTop: 0 }}>
+        <Link to="/"><button className="tab">Battle</button></Link>
+        <button className="tab active">Leaderboard</button>
+      </div>
+      <h1 style={{ fontSize: 32, fontWeight: 900, marginBottom: 16, textAlign: 'center', color: '#000' }}>Leaderboard</h1>
       <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginBottom: 24 }}>
         <input
           value={query}

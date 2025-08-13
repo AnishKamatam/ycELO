@@ -60,14 +60,15 @@ button:hover {
   width: 520px;
   box-sizing: border-box;
   padding: 32px;
-  border: 2px solid #000;
-  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
   text-align: center;
   background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
 .card .logo {
@@ -75,12 +76,12 @@ button:hover {
   height: 220px;
   border-radius: 28px;
   object-fit: cover;
-  border: 2px solid #000;
+  border: 1px solid #e5e7eb;
 }
 
 .card .name {
   font-weight: 900;
-  font-size: 36px;
+  font-size: 32px;
   color: #000;
   text-decoration: none;
 }
@@ -102,6 +103,60 @@ button:hover {
   -webkit-box-orient: vertical;
 }
 
+.meta-list {
+  width: 100%;
+  margin-top: 4px;
+  display: grid;
+  row-gap: 8px;
+  color: #000;
+}
+.meta-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #fafafa;
+  font-size: 12px;
+}
+
+.vsCircle {
+  width: 68px;
+  height: 68px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  box-shadow: 0 10px 30px rgba(59,130,246,0.35);
+}
+
+.topnav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px auto 10px auto;
+}
+.tab {
+  padding: 10px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+}
+.tab.active {
+  border-color: #000;
+}
+
 @media (max-width: 768px) {
   .pairRow {
     width: 100%;
@@ -121,4 +176,5 @@ button:hover {
   .card .one-liner {
     font-size: 16px;
   }
+  .vsCircle { width: 56px; height: 56px; }
 }

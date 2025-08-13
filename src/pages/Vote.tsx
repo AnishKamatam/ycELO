@@ -72,21 +72,26 @@ export default function Vote() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 32 }}>
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 32, flexDirection: 'column', gap: 16 }}>
+      <div className="topnav">
+        <Link to="/"><button className="tab active">Battle</button></Link>
+        <Link to="/leaderboard"><button className="tab">Leaderboard</button></Link>
+      </div>
       <div style={{ width: '100%', maxWidth: 1400 }}>
         {error && (
           <div style={{ background: '#fee2e2', color: '#991b1b', padding: 12, borderRadius: 8, marginBottom: 16, textAlign: 'center' }}>{error}</div>
         )}
-        <div className="pairRow">
-          {loading || !pair ? (
-            <div>Loading…</div>
-          ) : (
-            pair.map((c) => <CompanyCard key={c.id} company={c} onVote={vote} />)
-          )}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24 }}>
+          <div className="pairRow">
+            {loading || !pair ? (
+              <div>Loading…</div>
+            ) : (
+              pair.map((c) => <CompanyCard key={c.id} company={c} onVote={vote} />)
+            )}
+          </div>
         </div>
-        <div style={{ marginTop: 28, display: 'flex', gap: 12, justifyContent: 'center' }}>
+        <div style={{ marginTop: 28, display: 'flex', justifyContent: 'center' }}>
           <button onClick={loadPair} style={{ fontSize: 16 }}>Skip</button>
-          <Link to="/leaderboard"><button style={{ fontSize: 16 }}>Leaderboard</button></Link>
         </div>
       </div>
     </div>
